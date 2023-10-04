@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "111733295112",
+    "project_id": "agendanotificacion-86214",
+    "storage_bucket": "agendanotificacion-86214.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111733295112:android:a99f1ac0b4e84c62bba9bd",
+        "android_client_info": {
+          "package_name": "com.example.agendaperritos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111733295112-d8fup7hjpomnddidkc3old0r0eqtadh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcawBQq8ZHApkBNj_wFBOA17iqd__2sTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111733295112-d8fup7hjpomnddidkc3old0r0eqtadh6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

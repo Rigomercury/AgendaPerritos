@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Agenda Perritos</string>
+
+    <string name="hint_nombre">Nombre:</string>
+    <string name="hint_mascota">Mascota:</string>
+    <string name="hint_direccion">Direccion:</string>
+    <string name="hint_telefono">Telefono:</string>
+    <string name="hint_Fecha">Fecha:</string>
+    <string name="hint_Hora">Hora:</string>
+    <string name="hint_Costo">Costo:</string>
+    <string name="guardar">Guardar</string>
+    <string name="compartir">Compartir</string>
+    <string name="menu_nuevo">Nuevo</string>
+    <string name="menu_informe">Informe</string>
+</resources>
