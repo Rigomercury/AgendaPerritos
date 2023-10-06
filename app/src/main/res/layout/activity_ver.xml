@@ -8,167 +8,177 @@
     android:orientation="vertical"
     tools:context=".VerActivity">
 
-    <TextView
-        android:id="@+id/viewNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_nombre"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-
-    <TextView
-        android:id="@+id/txtNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:textSize="30sp"
-        android:paddingBottom="15dp"/>
-    <TextView
-        android:id="@+id/viewMascota"
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="@string/hint_mascota"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-
-    <TextView
-        android:id="@+id/txtMascota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:textSize="30sp"
-        android:paddingBottom="15dp"/>
-    <TextView
-        android:id="@+id/viewDireccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_direccion"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-
-    <TextView
-        android:id="@+id/txtDireccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:paddingBottom="15dp"/>
-
-    <TextView
-        android:id="@+id/viewTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_telefono"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-
-    <TextView
-        android:id="@+id/txtTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:paddingBottom="15dp"/>
-    <TextView
-        android:id="@+id/viewFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_Fecha"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-    <TextView
-        android:id="@+id/txtFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:focusable="false"
-        android:paddingBottom="15dp"/>
-    <TextView
-        android:id="@+id/viewHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_Hora"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-    <TextView
-        android:id="@+id/txtHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:textSize="30sp"
-        android:focusable="false"
-        android:paddingBottom="15dp"/>
-
-    <TextView
-        android:id="@+id/viewCosto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_Costo"
-        android:textStyle="bold"
-        android:textSize="24dp"/>
-
-    <TextView
-        android:id="@+id/txtCosto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:textSize="30sp"
-        android:focusable="false"
-        android:paddingBottom="15dp"/>
-
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/guardar"
-        android:textSize="24dp"/>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_background"
+        android:orientation="vertical">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabEditar"
+        <TextView
+            android:id="@+id/viewNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:clickable="true"
-            android:backgroundTint="@color/purple_500"
-            android:src="@drawable/ic_edit" />
+            android:textColor="@color/white"
+            android:text="@string/hint_nombre"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabEliminar"
+        <TextView
+            android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:clickable="true"
-            android:backgroundTint="@color/purple_500"
-            android:src="@drawable/ic_delete" />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabCompartir"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:textSize="30sp"
+            android:paddingBottom="15dp"/>
+        <TextView
+            android:id="@+id/viewMascota"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_mascota"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/txtMascota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:clickable="true"
-            android:backgroundTint="@color/purple_500"
-            android:src="@drawable/ic_share" />
+            android:textColor="@color/white"
+            android:ems="10"
+            android:textSize="30sp"
+            android:paddingBottom="15dp"/>
+        <TextView
+            android:id="@+id/viewDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_direccion"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/txtDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:paddingBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/viewTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_telefono"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/txtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:paddingBottom="15dp"/>
+        <TextView
+            android:id="@+id/viewFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_Fecha"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:focusable="false"
+            android:paddingBottom="15dp"/>
+        <TextView
+            android:id="@+id/viewHora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_Hora"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/txtHora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:textSize="30sp"
+            android:focusable="false"
+            android:paddingBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/viewCosto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_Costo"
+            android:textStyle="bold"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/txtCosto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:textSize="30sp"
+            android:focusable="false"
+            android:paddingBottom="15dp"/>
+
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar"
+            android:textSize="24dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabEditar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:clickable="true"
+                android:backgroundTint="@color/purple_500"
+                android:src="@drawable/ic_edit" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabEliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:clickable="true"
+                android:backgroundTint="@color/purple_500"
+                android:src="@drawable/ic_delete" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabCompartir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:clickable="true"
+                android:backgroundTint="@color/purple_500"
+                android:src="@drawable/ic_share" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>

@@ -190,8 +190,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // Obtener el mes seleccionado (posición + 1 porque los meses en Calendar van de 0 a 11)
                 int mesSeleccionado = monthSpinner.getSelectedItemPosition() + 1;
-                int añooSeleccionado = (int) parent.getItemAtPosition(position);
-                filtrarContactosPorMes(mesSeleccionado, añooSeleccionado);
+                int añoSeleccionado = (int) parent.getItemAtPosition(position);
+                filtrarContactosPorMes(mesSeleccionado, añoSeleccionado);
             }
 
             @Override

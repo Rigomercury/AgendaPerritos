@@ -42,6 +42,7 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
     public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
 
         Contactos contacto = listaContactos.get(position);
+        holder.itemView.setBackgroundResource(R.drawable.item_background);
 
         holder.tvNombre.setText(listaContactos.get(position).getNombre());
         holder.tvTelefono.setText("+569 " + listaContactos.get(position).getTelefono());
@@ -54,7 +55,8 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
             holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.colorAgendaProxima));
         } else {
             // Restaurar el color de fondo predeterminado de los demás elementos
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.transparent));
+            holder.itemView.setBackgroundResource(R.drawable.item_background);
+            //holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.transparent));
         }
     }
     @Override

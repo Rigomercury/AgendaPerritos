@@ -129,7 +129,7 @@ public class VerActivity extends AppCompatActivity {
                 String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
 
                 // Texto que deseas compartir
-                String mensaje = "Hola, " + txtMascota.getText().toString() + " tiene una cita en Peluqueria 'COSMOS Y WANDA'" +
+                String mensaje = "Hola, " + txtMascota.getText().toString().toUpperCase() + " tiene una cita en Peluqueria 'COSMOS Y WANDA'" +
                         "\nFecha: " + txtFecha.getText().toString() +
                         "\nHora: " + txtHora.getText().toString() +
                         "\nEl costo del servicio es de: " + txtCosto.getText().toString() +
@@ -138,7 +138,7 @@ public class VerActivity extends AppCompatActivity {
                         "\nNombre: Maribel Salgado" +
                         "\nRut: 16800320-k" +
                         "\nBanco Estado: Cta Rut Banco estado" +
-                        "\nConfirmar Asistencia!!";
+                        "\nConfirmar Asistencia!! de lo contrario vayase a la CTM";
 
                 if (txtTelefono.getText().toString().isEmpty()) {
                     // Crear un intent para abrir WhatsApp y compartir el mensaje
