@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/comoswanda1"
     android:orientation="vertical"
     tools:context=".NuevoActivity">
 
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:hint="@string/hint_nombre"/>
     <EditText
@@ -21,12 +23,14 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:hint="@string/hint_mascota"/>
     <EditText
         android:id="@+id/txtDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="24sp"
@@ -37,6 +41,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:hint="@string/hint_telefono"/>
     <EditText
@@ -45,6 +50,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:hint="@string/hint_Fecha"
         android:focusable="false"
@@ -55,6 +61,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:hint="@string/hint_Hora"
         android:focusable="false"
@@ -65,6 +72,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:hint="@string/hint_Costo"/>
 
