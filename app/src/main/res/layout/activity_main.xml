@@ -5,13 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/comoswanda1"
+    android:background="@drawable/ic_logo_cyw"
     tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_background"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="AGENDA CLIENTES"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="40dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#5B4C7E">
+        android:background="@drawable/item_background">
         <Spinner
             android:id="@+id/monthSpinner"
             android:layout_width="wrap_content"
@@ -24,7 +35,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#5B4C7E">
+        android:background="@drawable/item_background">
 
         <TextView
             android:id="@+id/totalCostTextView"

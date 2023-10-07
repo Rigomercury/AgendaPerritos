@@ -5,143 +5,164 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/comoswanda1"
+    android:background="@drawable/ic_logo_cyw"
     tools:context=".EditarActivity">
 
     <TextView
-        android:id="@+id/viewNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_nombre" />
+        android:background="@drawable/item_background"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="EDITA CITAS"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="40dp" />
 
-    <EditText
-        android:id="@+id/txtNombre"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:labelFor="@id/viewNombre"
-        android:textColor="@color/white"
-        android:inputType="textPersonName"
-        android:textSize="24sp"/>
-    <TextView
-        android:id="@+id/viewMascota"
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="@string/hint_mascota" />
-    <EditText
-        android:id="@+id/txtMascota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="24sp"/>
-    <TextView
-        android:id="@+id/viewDireccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_direccion" />
-    <EditText
-        android:id="@+id/txtDireccion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textSize="24sp"/>
-    <TextView
-        android:id="@+id/viewTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_telefono" />
+        android:layout_height="match_parent"
+        android:background="@drawable/item_background"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/txtTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:labelFor="@id/viewTelefono"
-        android:textColor="@color/white"
-        android:inputType="number"
-        android:textSize="24sp"/>
-    <TextView
-        android:id="@+id/viewFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:text="@string/hint_Fecha" />
-    <EditText
-        android:id="@+id/txtFecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:labelFor="@id/viewFecha"
-        android:textColor="@color/white"
-        android:inputType="date"
-        android:textSize="24sp"
-        android:focusable="false"
-        android:onClick="showDatePickerDialog"/>
-    <TextView
-        android:id="@+id/viewHora"
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="@string/hint_Hora" />
-    <EditText
-        android:id="@+id/txtHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:labelFor="@id/viewHora"
-        android:inputType="time"
-        android:textSize="24sp"
-        android:focusable="false"
-        android:onClick="showTimePickerDialog"/>
+        <TextView
+            android:id="@+id/viewNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_nombre" />
 
-    <TextView
-        android:id="@+id/viewCosto"
-        android:layout_width="match_parent"
-        android:textColor="@color/white"
-        android:layout_height="wrap_content"
-        android:text="@string/hint_Costo" />
+        <EditText
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:labelFor="@id/viewNombre"
+            android:textColor="@color/white"
+            android:inputType="textPersonName"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/viewMascota"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_mascota" />
+        <EditText
+            android:id="@+id/txtMascota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/viewDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_direccion" />
+        <EditText
+            android:id="@+id/txtDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColor="@color/white"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/viewTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_telefono" />
 
-    <EditText
-        android:id="@+id/txtCosto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:ems="10"
-        android:labelFor="@id/viewCosto"
-        android:inputType="number"
-        android:textSize="24sp"/>
+        <EditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:labelFor="@id/viewTelefono"
+            android:textColor="@color/white"
+            android:inputType="number"
+            android:textSize="24sp"/>
+        <TextView
+            android:id="@+id/viewFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/hint_Fecha" />
+        <EditText
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:labelFor="@id/viewFecha"
+            android:textColor="@color/white"
+            android:inputType="date"
+            android:textSize="24sp"
+            android:focusable="false"
+            android:onClick="showDatePickerDialog"/>
+        <TextView
+            android:id="@+id/viewHora"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_Hora" />
+        <EditText
+            android:id="@+id/txtHora"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:labelFor="@id/viewHora"
+            android:inputType="time"
+            android:textSize="24sp"
+            android:focusable="false"
+            android:onClick="showTimePickerDialog"/>
 
-    <Button
-        android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/guardar"
-        android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/viewCosto"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_Costo" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabEditar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:clickable="true"
-        android:backgroundTint="@color/purple_500"
-        android:src="@drawable/ic_edit" />
+        <EditText
+            android:id="@+id/txtCosto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:ems="10"
+            android:labelFor="@id/viewCosto"
+            android:inputType="number"
+            android:textSize="24sp"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabEliminar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:clickable="true"
-        android:backgroundTint="@color/purple_500"
-        android:src="@drawable/ic_delete" />
+        <Button
+            android:id="@+id/btnGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/guardar"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:textSize="24dp"/>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabEditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:src="@drawable/ic_edit" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:src="@drawable/ic_delete" />
+
+    </LinearLayout>
+
 </LinearLayout>

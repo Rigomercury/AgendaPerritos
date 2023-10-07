@@ -29,13 +29,12 @@ import java.util.Locale;
 public class VerActivity extends AppCompatActivity {
 
     TextView txtFecha, txtHora, txtNombre, txtTelefono, txtCosto, txtMascota, txtDireccion;
-    Button btnGuardar;
     FloatingActionButton fabEditar, fabEliminar, fabCompartir;
 
     Contactos contacto;
     int id = 0;
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +49,6 @@ public class VerActivity extends AppCompatActivity {
         txtCosto = findViewById(R.id.txtCosto);
         fabEditar = findViewById(R.id.fabEditar);
         fabEliminar = findViewById(R.id.fabEliminar);
-        btnGuardar = findViewById(R.id.btnGuardar);
         fabCompartir = findViewById(R.id.fabCompartir);
 
         if (savedInstanceState == null) {
@@ -75,8 +73,6 @@ public class VerActivity extends AppCompatActivity {
             txtFecha.setText(contacto.getFecha());
             txtHora.setText(contacto.getHora());
             txtCosto.setText("$ " + contacto.getCosto());
-
-            btnGuardar.setVisibility(View.INVISIBLE);
 
             txtNombre.setInputType(InputType.TYPE_NULL);
             txtMascota.setInputType(InputType.TYPE_NULL);
@@ -129,7 +125,7 @@ public class VerActivity extends AppCompatActivity {
                 String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
 
                 // Texto que deseas compartir
-                String mensaje = "Hola, ★" + txtMascota.getText().toString().toUpperCase() + "★ tiene una cita en Peluqueria 'COSMOS Y WANDA'" +
+                String mensaje = "Hola, ★" + txtMascota.getText().toString().toUpperCase() + "★ tiene una cita en Perruqueria 'COSMOS Y WANDA'" +
                         "\nFecha: " + txtFecha.getText().toString() +
                         "\nHora: " + txtHora.getText().toString() +
                         "\nEl costo del servicio es de: " + txtCosto.getText().toString() +

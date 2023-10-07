@@ -4,9 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/comoswanda1"
+    android:background="@drawable/ic_logo_cyw"
     android:orientation="vertical"
     tools:context=".NuevoActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_background"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="AGENDAR CITA"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="40dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,11 +97,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/guardar"
+            android:backgroundTint="@color/colorAgendaProxima"
             android:textSize="24dp"/>
         <Button
             android:id="@+id/btncompartir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAgendaProxima"
             android:text="@string/compartir"
             android:textSize="24dp"/>
 

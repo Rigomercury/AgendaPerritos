@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:layout_weight=".1"
             android:padding="2dp"
-            android:src="@drawable/logoparaapp" />
+            android:src="@drawable/ic_logo_cyw" />
 
         <LinearLayout
             android:layout_width="match_parent"

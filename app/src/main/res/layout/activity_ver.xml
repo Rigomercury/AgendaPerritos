@@ -4,9 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/comoswanda1"
+    android:background="@drawable/ic_logo_cyw"
     android:orientation="vertical"
     tools:context=".VerActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_background"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="MOSTRAR AGENDA"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="40dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -137,48 +147,39 @@
             android:focusable="false"
             android:paddingBottom="15dp"/>
 
-        <Button
-            android:id="@+id/btnGuardar"
+
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabEditar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/guardar"
-            android:textSize="24dp"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:src="@drawable/ic_edit" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabEliminar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:src="@drawable/ic_delete" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabEditar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:clickable="true"
-                android:backgroundTint="@color/purple_500"
-                android:src="@drawable/ic_edit" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabEliminar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:clickable="true"
-                android:backgroundTint="@color/purple_500"
-                android:src="@drawable/ic_delete" />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fabCompartir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                android:clickable="true"
-                android:backgroundTint="@color/purple_500"
-                android:src="@drawable/ic_share" />
-
-        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCompartir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:clickable="true"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:src="@drawable/ic_share" />
 
     </LinearLayout>
-
-
-
-
+    </LinearLayout>
 </LinearLayout>
