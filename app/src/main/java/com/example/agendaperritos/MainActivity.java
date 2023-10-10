@@ -46,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Contactos> todosLosContactos;
     ListaContactoAdapter adapter;
     TextView totalCostTextView; // Agrega esta línea para referenciar el TextView del total
-
-
+    Button btnNuevo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listaContactos = findViewById(R.id.listaContactos);
+        btnNuevo = findViewById(R.id.btnNuevo);
+
         listaContactos.setLayoutManager(new LinearLayoutManager(this));
         listaContactos.addItemDecoration(new DividerItemDecoration(this)); // Agregar el ItemDecoration
 
@@ -114,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+
         if (agendaMasProxima != null) {
             // Calcula la diferencia entre la hora actual y la hora de la cita más próxima en milisegundos
             long tiempoRestante = tiempoAgendaMasProxima - tiempoActual;
@@ -135,6 +137,12 @@ public class MainActivity extends AppCompatActivity {
             adapter.setPosicionAgendaMasProxima(posicionAgendaMasProxima);
         }
 
+        btnNuevo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nuevoRegistro();
+            }
+        });
     }
 
     private int obtenerPosicionAñoActual(int añoActual) {
@@ -142,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<Integer> adapter = (ArrayAdapter<Integer>) yearSpinner.getAdapter();
         return adapter.getPosition(añoActual);
     }
-
 
     private void cargarSpinnerMeses() {
         Spinner monthSpinner = findViewById(R.id.monthSpinner);
@@ -201,7 +208,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     private void filtrarContactosPorMes(int mesSeleccionado, int añoSeleccionado) {
         // Limpiar la lista de contactos antes de llenarla con los contactos del mes seleccionado
         listaArrayContactos.clear();
@@ -243,8 +249,6 @@ public class MainActivity extends AppCompatActivity {
         //listaContactos.getAdapter().notifyDataSetChanged();
     }
 
-
-
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_principal,menu);
@@ -260,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
     private void nuevoRegistro(){
         Intent intent = new Intent(this, NuevoActivity.class);
         startActivity(intent);

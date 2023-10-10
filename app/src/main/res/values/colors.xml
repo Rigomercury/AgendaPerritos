@@ -8,5 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorAgendaProxima">#D0C800FF</color> <!-- Color rojo en este ejemplo -->
-
+    <color name="boton">#B3764280</color>
 </resources>

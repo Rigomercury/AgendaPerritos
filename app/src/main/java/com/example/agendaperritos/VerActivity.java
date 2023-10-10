@@ -125,15 +125,16 @@ public class VerActivity extends AppCompatActivity {
                 String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
 
                 // Texto que deseas compartir
-                String mensaje = "Hola, ★" + txtMascota.getText().toString().toUpperCase() + "★ tiene una cita en Perruqueria 'COSMOS Y WANDA'" +
+                String mensaje = "Hola, ★" + txtMascota.getText().toString().toUpperCase() + "★ tiene una cita en Perruqueria 'COSMO Y WANDA'" +
                         "\nFecha: " + txtFecha.getText().toString() +
                         "\nHora: " + txtHora.getText().toString() +
-                        "\nEl costo del servicio es de: " + txtCosto.getText().toString() +
+                        //"\nEl costo del servicio es de: " + txtCosto.getText().toString() +
                         "\n" + lineaHorizontal +
                         "\nPuede cancelar en efectivo o Transferencia a:" +
                         "\nNombre: Maribel Salgado" +
                         "\nRut: 16800320-k" +
-                        "\nBanco Estado: Cta Rut Banco estado" +
+                        "\nbacno Estado, Cta Rut" +
+                        "\npelu.cosmoywanda@gmail.com" +
                         "\nConfirmar Asistencia!!";
 
                 if (txtTelefono.getText().toString().isEmpty()) {

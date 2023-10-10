@@ -1,6 +1,6 @@
 <!-- divider_line.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <size android:height="1dp" />
-    <solid android:color="@android:color/darker_gray" /> <!-- Color de la línea divisoria (puedes ajustarlo a tus preferencias) -->
+    <size android:height="2dp" />
+    <solid android:color="@color/boton" /> <!-- Color de la línea divisoria (puedes ajustarlo a tus preferencias) -->
 </shape>
