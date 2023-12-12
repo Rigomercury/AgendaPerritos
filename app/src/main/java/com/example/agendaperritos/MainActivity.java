@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.icu.text.DecimalFormat;
 import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -30,6 +32,9 @@ import com.example.agendaperritos.db.DbContactos;
 import com.example.agendaperritos.db.DbHelper;
 import com.example.agendaperritos.entidades.Contactos;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Contactos> todosLosContactos;
     ListaContactoAdapter adapter;
     TextView totalCostTextView; // Agrega esta línea para referenciar el TextView del total
+    String rutaArchivoCSV = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/agenda.csv";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
     private void filtrarContactosPorMes(int mesSeleccionado, int añoSeleccionado) {
         // Limpiar la lista de contactos antes de llenarla con los contactos del mes seleccionado
         listaArrayContactos.clear();
@@ -251,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.menuNuevo:
@@ -261,6 +269,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.menuPromocion:
                 compartirPromociones();
+                return true;
+            case R.id.menuExportar:
+                exportarCSV(todosLosContactos, rutaArchivoCSV);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -301,13 +312,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Obtener el número de teléfono del contacto actual
         HashMap<String, Integer> frecuenciaNumeros = new HashMap<>();
-        String nombreMascota = " ";
 
         // Iterar sobre todos los contactos
         for (Contactos contacto : todosLosContactos) {
             // Obtener el número de teléfono del contacto actual
             String numeroTelefono = contacto.getTelefono();
-            nombreMascota = contacto.getMascota();
 
             // Incrementar la frecuencia del número en el diccionario
             Integer frecuenciaActual = frecuenciaNumeros.get(numeroTelefono);
@@ -324,22 +333,20 @@ public class MainActivity extends AppCompatActivity {
             String mensajeDescuento;
 
             if (frecuencia >= 1 && frecuencia < 4) {
-                mensajeDescuento = "Cuando cumpla 4 visitas, tendra un descuento de un 25%";
+                mensajeDescuento = "obten un 25% de descuento en la 4° visita.";
             } else if (frecuencia >= 4 && frecuencia < 8) {
-                mensajeDescuento = "Cuando cumpla 8 visitas, tendra un descuento de un 50%";
+                mensajeDescuento = "obten un 50% de descuento en la 8° visita.";
             } else {
-                mensajeDescuento = "Su visita numero 12 sera completamente GRATUITA!!!";
+                mensajeDescuento = "obten completamente GRATIS, la numero 12°";
             }
-
             String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
 
             String mensaje = "PROMOCIONES A CLIENTES CONSTANTES" +
                     "\n" + lineaHorizontal +
-                    "\nPara el contacto " + numeroTelefono + " le tenemos en perruqueria ★COSMO & WANDA★, una promoción a su medida" +
-                    "\nTiene: " + frecuencia + " visita(s) con nosotros" +
-                    "\n" + mensajeDescuento +
+                    "\nHola " + numeroTelefono + " Te esperamos en ★COSMO & WANDA★ perruqueria." +
+                    "\nPor tus " + frecuencia + " visitas, " + mensajeDescuento +
                     "\n" + lineaHorizontal +
-                    "\nNo dejes de venir y ser parte de la familia ★COSMO & WANDA★";
+                    "\n\uD83D\uDC36¡Hazte parte de nuestra familia!✂️";
 
             try {
                 // Codificar el mensaje para asegurar la correcta transmisión en la URI
@@ -354,6 +361,38 @@ public class MainActivity extends AppCompatActivity {
             String uri = "whatsapp://send?phone=" + numeroTelefono + "&text=" + mensaje;
             sendIntent.setData(Uri.parse(uri));
             startActivity(sendIntent);
+        }
+    }
+
+    public void exportarCSV(ArrayList<Contactos> todosLosContactos, String rutaArchivo) {
+
+        try {
+            FileWriter fw = new FileWriter(rutaArchivo);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            // Escribir encabezados
+            bw.write("id,nombre,mascota,direccion,telefono,fecha,hora,costo");
+            bw.newLine();
+
+            // Escribir datos
+            for (Contactos contacto : todosLosContactos) {
+                bw.write(contacto.getId() + ","
+                        + contacto.getNombre() + ","
+                        + contacto.getMascota() + ","
+                        + contacto.getDireccion() + ","
+                        + contacto.getTelefono() + ","
+                        + contacto.getFecha() + ","
+                        + contacto.getHora() + ","
+                        + contacto.getCosto());
+                bw.newLine();
+            }
+
+            bw.close();
+            fw.close();
+            Toast.makeText(this, "Exportacion exitosa", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error"+ e, Toast.LENGTH_SHORT).show();
         }
     }
 }

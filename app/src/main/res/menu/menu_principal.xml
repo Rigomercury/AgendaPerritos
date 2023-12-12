@@ -11,4 +11,7 @@
     <item
         android:id="@+id/menuPromocion"
         android:title="@string/menu_promo" />
+    <item
+        android:id="@+id/menuExportar"
+        android:title="@string/menu_export" />
 </menu>
