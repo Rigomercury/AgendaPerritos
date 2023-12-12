@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.icu.text.DecimalFormat;
 import android.icu.text.SimpleDateFormat;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -29,6 +30,8 @@ import com.example.agendaperritos.db.DbContactos;
 import com.example.agendaperritos.db.DbHelper;
 import com.example.agendaperritos.entidades.Contactos;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.text.DateFormatSymbols;
 import java.text.ParseException;
@@ -37,7 +40,9 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Contactos> todosLosContactos;
     ListaContactoAdapter adapter;
     TextView totalCostTextView; // Agrega esta línea para referenciar el TextView del total
-    Button btnNuevo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listaContactos = findViewById(R.id.listaContactos);
-        btnNuevo = findViewById(R.id.btnNuevo);
 
         listaContactos.setLayoutManager(new LinearLayoutManager(this));
         listaContactos.addItemDecoration(new DividerItemDecoration(this)); // Agregar el ItemDecoration
@@ -100,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
             String horaContacto = contacto.getHora();
 
             // Convertir la fecha y hora del contacto en milisegundos para comparar con el tiempo actual
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+            SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
             String fechaHoraString = fechaContacto + " " + horaContacto;
             try {
-                Date fechaHoraContacto = sdf.parse(fechaHoraString);
+                Date fechaHoraContacto = sd.parse(fechaHoraString);
                 long tiempoContacto = fechaHoraContacto.getTime();
 
                 // Comparar con el tiempo actual y actualizar la agenda más próxima si es necesario
@@ -136,13 +139,6 @@ public class MainActivity extends AppCompatActivity {
             int posicionAgendaMasProxima = listaArrayContactos.indexOf(agendaMasProxima);
             adapter.setPosicionAgendaMasProxima(posicionAgendaMasProxima);
         }
-
-        btnNuevo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nuevoRegistro();
-            }
-        });
     }
 
     private int obtenerPosicionAñoActual(int añoActual) {
@@ -260,6 +256,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menuNuevo:
                 nuevoRegistro();
                 return true;
+            case R.id.menuDatos:
+                compartirDatos();
+                return true;
+            case R.id.menuPromocion:
+                compartirPromociones();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -268,5 +270,90 @@ public class MainActivity extends AppCompatActivity {
     private void nuevoRegistro(){
         Intent intent = new Intent(this, NuevoActivity.class);
         startActivity(intent);
+    }
+
+    private void compartirDatos(){
+        String numeroTelefono = "+56991831880";
+        String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
+
+        // Texto que deseas compartir
+        String mensaje = "DATOS SOLICITADOS PARA TOMAR CITAS POR MAIL:" +
+                "\n" + lineaHorizontal +
+                "\nNombre Dueño:"+
+                "\nNombre Mascota:"+
+                "\nDireccion:"+
+                "\nnumero de Telefono:"+
+                "\nServicio requerido:"+
+                "\n" + lineaHorizontal +
+                "\nFecha y Hora de preferencia, apenas tengamos agenda te devolveremos el mensaje";
+
+        // Crear un intent para abrir WhatsApp y compartir el mensaje
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_VIEW);
+        String uri = "whatsapp://send?phone=" + numeroTelefono + "&text=" + mensaje;
+        sendIntent.setData(Uri.parse(uri));
+        startActivity(sendIntent);
+    }
+
+    private void compartirPromociones() {
+        DbContactos dbContactos = new DbContactos(MainActivity.this);
+        todosLosContactos = dbContactos.mostrarContactos();
+
+        // Obtener el número de teléfono del contacto actual
+        HashMap<String, Integer> frecuenciaNumeros = new HashMap<>();
+        String nombreMascota = " ";
+
+        // Iterar sobre todos los contactos
+        for (Contactos contacto : todosLosContactos) {
+            // Obtener el número de teléfono del contacto actual
+            String numeroTelefono = contacto.getTelefono();
+            nombreMascota = contacto.getMascota();
+
+            // Incrementar la frecuencia del número en el diccionario
+            Integer frecuenciaActual = frecuenciaNumeros.get(numeroTelefono);
+            frecuenciaActual = (frecuenciaActual == null) ? 0 : frecuenciaActual;
+            frecuenciaNumeros.put(numeroTelefono, frecuenciaActual + 1);
+
+        }
+
+        // Imprimir la frecuencia de los números de teléfono
+        for (Map.Entry<String, Integer> entry : frecuenciaNumeros.entrySet()) {
+
+            String numeroTelefono = entry.getKey();
+            int frecuencia = entry.getValue();
+            String mensajeDescuento;
+
+            if (frecuencia >= 1 && frecuencia < 4) {
+                mensajeDescuento = "Cuando cumpla 4 visitas, tendra un descuento de un 25%";
+            } else if (frecuencia >= 4 && frecuencia < 8) {
+                mensajeDescuento = "Cuando cumpla 8 visitas, tendra un descuento de un 50%";
+            } else {
+                mensajeDescuento = "Su visita numero 12 sera completamente GRATUITA!!!";
+            }
+
+            String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
+
+            String mensaje = "PROMOCIONES A CLIENTES CONSTANTES" +
+                    "\n" + lineaHorizontal +
+                    "\nPara el contacto " + numeroTelefono + " le tenemos en perruqueria ★COSMO & WANDA★, una promoción a su medida" +
+                    "\nTiene: " + frecuencia + " visita(s) con nosotros" +
+                    "\n" + mensajeDescuento +
+                    "\n" + lineaHorizontal +
+                    "\nNo dejes de venir y ser parte de la familia ★COSMO & WANDA★";
+
+            try {
+                // Codificar el mensaje para asegurar la correcta transmisión en la URI
+                mensaje = URLEncoder.encode(mensaje, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+
+            // Crear un intent para abrir WhatsApp y compartir el mensaje
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_VIEW);
+            String uri = "whatsapp://send?phone=" + numeroTelefono + "&text=" + mensaje;
+            sendIntent.setData(Uri.parse(uri));
+            startActivity(sendIntent);
+        }
     }
 }

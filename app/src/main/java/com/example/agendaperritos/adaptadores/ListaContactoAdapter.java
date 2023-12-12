@@ -45,7 +45,7 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
         holder.itemView.setBackgroundResource(R.drawable.item_background);
 
         holder.tvNombre.setText(listaContactos.get(position).getNombre());
-        holder.tvTelefono.setText("+569 " + listaContactos.get(position).getTelefono());
+        holder.tvTelefono.setText(listaContactos.get(position).getTelefono());
         holder.tvFecha.setText(listaContactos.get(position).getFecha());
         holder.tvHora.setText(listaContactos.get(position).getHora());
         holder.tvCosto.setText("$ " + listaContactos.get(position).getCosto());

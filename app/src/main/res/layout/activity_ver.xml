@@ -8,16 +8,6 @@
     android:orientation="vertical"
     tools:context=".VerActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/item_backgroup_tille"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="MOSTRAR AGENDA"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="40dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -178,7 +168,7 @@
             android:layout_gravity="bottom|end"
             android:clickable="true"
             android:backgroundTint="@color/colorAgendaProxima"
-            android:src="@drawable/ic_share" />
+             android:src="@drawable/ic_share"/>
 
     </LinearLayout>
     </LinearLayout>

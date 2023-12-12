@@ -69,7 +69,7 @@ public class VerActivity extends AppCompatActivity {
             txtNombre.setText(contacto.getNombre());
             txtMascota.setText(contacto.getMascota());
             txtDireccion.setText(contacto.getDireccion());
-            txtTelefono.setText("+569 " + contacto.getTelefono());
+            txtTelefono.setText(contacto.getTelefono());
             txtFecha.setText(contacto.getFecha());
             txtHora.setText(contacto.getHora());
             txtCosto.setText("$ " + contacto.getCosto());
@@ -125,17 +125,24 @@ public class VerActivity extends AppCompatActivity {
                 String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
 
                 // Texto que deseas compartir
-                String mensaje = "Hola, ★" + txtMascota.getText().toString().toUpperCase() + "★ tiene una cita en Perruqueria 'COSMO Y WANDA'" +
-                        "\nFecha: " + txtFecha.getText().toString() +
-                        "\nHora: " + txtHora.getText().toString() +
-                        //"\nEl costo del servicio es de: " + txtCosto.getText().toString() +
+                String mensaje = "Hola, su cita con ★" + txtMascota.getText().toString().toUpperCase() + "★" +
+                        "en Perruqueria 'COSMO Y WANDA' ha sido reservada satisfactoriamente" +
                         "\n" + lineaHorizontal +
+
+                        "\nDia: " + txtFecha.getText().toString() +
+                        "\nHora: " + txtHora.getText().toString() +
+                        "\n" + lineaHorizontal +
+
                         "\nPuede cancelar en efectivo o Transferencia a:" +
                         "\nNombre: Maribel Salgado" +
-                        "\nRut: 16800320-k" +
-                        "\nbacno Estado, Cta Rut" +
-                        "\npelu.cosmoywanda@gmail.com" +
-                        "\nConfirmar Asistencia!!";
+                        "\nRut: 16800320-K" +
+                        "\nBanco Estado, Cta Rut" +
+                        "\n" + lineaHorizontal +
+
+                        "\nTambien puedes reservar a: pelu.cosmoywanda@gmail.com"+
+                        "\n" + lineaHorizontal +
+                        "\nSiguenos en Instagram: https://www.instagram.com/peluqueria.canina.cosmoywanda/"+
+                        "\nGracias por preferir a COSMO Y WANDA!!";
 
                 if (txtTelefono.getText().toString().isEmpty()) {
                     // Crear un intent para abrir WhatsApp y compartir el mensaje

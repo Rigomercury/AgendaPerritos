@@ -11,7 +11,8 @@
     <string name="guardar">Guardar</string>
     <string name="compartir">Compartir</string>
     <string name="menu_nuevo">Nuevo</string>
-    <string name="menu_informe">Informe</string>
+    <string name="menu_datos">Datos</string>
+    <string name="menu_promo">Promociones</string>
     <string name="agenda_clientes">AGENDA CLIENTES</string>
     <string name="nuevo">Nuevo</string>
     <string name="total_mes_0">Total Mes: $0</string>

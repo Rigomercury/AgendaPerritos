@@ -11,32 +11,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/item_background"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/item_backgroup_tille"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/agenda_clientes"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:textSize="40sp" />
-
-        <Button
-            android:id="@+id/btnNuevo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/boton"
-            android:text="@string/nuevo" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@drawable/item_backgroup_tille">
+        android:background="@color/boton">
         <Spinner
             android:id="@+id/monthSpinner"
             android:layout_width="wrap_content"

@@ -8,16 +8,6 @@
     android:orientation="vertical"
     tools:context=".NuevoActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/item_backgroup_tille"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="AGENDAR CITA"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="40dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,6 +49,7 @@
             android:inputType="number"
             android:textColor="@color/white"
             android:textSize="24sp"
+            android:text="+569"
             android:hint="@string/hint_telefono"/>
         <EditText
             android:id="@+id/txtFecha"

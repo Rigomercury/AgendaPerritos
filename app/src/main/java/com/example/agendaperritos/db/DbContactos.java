@@ -56,7 +56,7 @@ public class DbContactos extends DbHelper{
         Contactos contacto = null;
         Cursor cursorContactos = null;
 
-        cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_CONTACTOS + " ORDER BY fecha, hora ASC" , null);
+        cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_CONTACTOS + " ORDER BY fecha ASC, hora ASC" , null);
 
         // Obtener el mes actual del dispositivo
         Calendar calendar = Calendar.getInstance();
@@ -109,6 +109,44 @@ public class DbContactos extends DbHelper{
         cursorContactos.close();
 
         return contacto;
+    }
+
+    public ArrayList<Contactos> verTelefonoContacto(){
+
+            DbHelper dbhelper = new DbHelper(context);
+            SQLiteDatabase db = dbhelper.getWritableDatabase();
+
+            ArrayList<Contactos> listaContactos = new ArrayList<>();
+            Contactos contacto = null;
+            Cursor cursorContactos = null;
+
+            cursorContactos = db.rawQuery("SELECT * FROM " + TABLE_CONTACTOS + " ORDER BY fecha, hora ASC" , null);
+
+            // Obtener el mes actual del dispositivo
+            Calendar calendar = Calendar.getInstance();
+            int mesActual = calendar.get(Calendar.MONTH) + 1; // +1 porque los meses en Calendar van de 0 a 11
+
+
+            if(cursorContactos.moveToFirst()){
+                do{
+                    contacto = new Contactos();
+                    contacto.setId(cursorContactos.getInt(0));
+                    contacto.setNombre(cursorContactos.getString(1));
+                    contacto.setMascota(cursorContactos.getString(2));
+                    contacto.setDireccion(cursorContactos.getString(3));
+                    contacto.setTelefono(cursorContactos.getString(4));
+                    contacto.setFecha(cursorContactos.getString(5));
+                    contacto.setHora(cursorContactos.getString(6));
+                    contacto.setCosto(cursorContactos.getString(7));
+                    listaContactos.add(contacto);
+
+                }while (cursorContactos.moveToNext());
+            }
+
+            cursorContactos.close();
+
+            return listaContactos;
+
     }
 
     public boolean editarContacto(int id, String nombre,String mascota,String direccion, String telefono, String fecha, String hora, String costo ){

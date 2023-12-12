@@ -51,9 +51,9 @@ public class NuevoActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nombre = txtNombre.getText().toString();
-                String mascota = txtMascota.getText().toString();
-                String direccion = txtDireccion.getText().toString();
+                String nombre = convertirAPropio(String.valueOf(txtNombre.getText()));
+                String mascota = convertirAPropio(String.valueOf(txtMascota.getText()));
+                String direccion = convertirAPropio(String.valueOf(txtDireccion.getText()));
                 String telefono = txtTelefono.getText().toString();
                 String fecha = txtFecha.getText().toString();
                 String hora = txtHora.getText().toString();
@@ -102,5 +102,19 @@ public class NuevoActivity extends AppCompatActivity {
         Intent intent = new Intent(this, VerActivity.class);
         intent.putExtra("ID", ids);
         startActivity(intent);
+    }
+    private String convertirAPropio(String input) {
+        String[] palabras = input.split(" ");
+        StringBuilder resultado = new StringBuilder();
+
+        for (String palabra : palabras) {
+            if (!palabra.isEmpty()) {
+                String primeraLetra = palabra.substring(0, 1).toUpperCase();
+                String restoPalabra = palabra.substring(1).toLowerCase();
+                resultado.append(primeraLetra).append(restoPalabra).append(" ");
+            }
+        }
+
+        return resultado.toString().trim();
     }
 }

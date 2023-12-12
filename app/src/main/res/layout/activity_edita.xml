@@ -8,16 +8,6 @@
     android:background="@drawable/ic_logo_cyw"
     tools:context=".EditarActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/item_backgroup_tille"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="EDITA CITAS"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:textSize="40dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
