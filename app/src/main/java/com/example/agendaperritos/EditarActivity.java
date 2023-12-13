@@ -22,7 +22,7 @@ import java.util.Locale;
 
 public class EditarActivity extends AppCompatActivity {
 
-    EditText txtNombre, txtTelefono, txtFecha, txtHora,txtCosto,txtMascota,txtDireccion;;
+    EditText txtRegistro, txtNombre, txtTelefono, txtFecha, txtHora,txtCosto,txtMascota,txtDireccion;;
     Button btnGuardar;
     FloatingActionButton fabEditar, fabEliminar;
     boolean correcto = false;
@@ -35,6 +35,7 @@ public class EditarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edita);
 
+        txtRegistro = findViewById(R.id.txtRegistro);
         txtNombre = findViewById(R.id.txtNombre);
         txtTelefono= findViewById(R.id.txtTelefono);
         txtFecha= findViewById(R.id.txtFecha);
@@ -50,26 +51,35 @@ public class EditarActivity extends AppCompatActivity {
 
         if(savedInstanceState == null){
             Bundle extras = getIntent().getExtras();
+
             if(extras == null){
                 id = Integer.parseInt(null);
             }else{
                 id = extras.getInt("ID");
+                Toast.makeText(EditarActivity.this, String.valueOf(id),Toast.LENGTH_LONG).show();
             }
         }else{
             id = (int) savedInstanceState.getSerializable("ID");
+
+
         }
 
         DbContactos dbContactos = new DbContactos(EditarActivity.this);
-        contacto = dbContactos.verContacto(id);
+        contacto = dbContactos.verContactoCitasNombres(id);
 
         if(contacto != null){
+            txtRegistro.setText(contacto.getRegistro());
             txtNombre.setText(contacto.getNombre());
             txtMascota.setText(contacto.getMascota());
-            txtDireccion.setText(contacto.getDireccion());
-            txtTelefono.setText(contacto.getTelefono());
             txtFecha.setText(contacto.getFecha());
             txtHora.setText(contacto.getHora());
             txtCosto.setText(contacto.getCosto());
+
+            String idR = txtRegistro.getText().toString();
+            Contactos contacto2 = dbContactos.verContactoNombre(idR);
+            txtDireccion.setText(contacto2.getDireccion());
+            txtTelefono.setText(contacto2.getTelefono());
+
 
         }
 

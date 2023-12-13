@@ -40,12 +40,11 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
 
     @Override
     public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
-
-        Contactos contacto = listaContactos.get(position);
+        //Contactos contacto = listaContactos.get(position);
         holder.itemView.setBackgroundResource(R.drawable.item_background);
 
-        holder.tvNombre.setText(listaContactos.get(position).getNombre());
-        holder.tvTelefono.setText(listaContactos.get(position).getTelefono());
+        holder.tvMascota.setText(listaContactos.get(position).getMascota());
+        holder.tvNombre.setText("Dueño: " + listaContactos.get(position).getNombre());
         holder.tvFecha.setText(listaContactos.get(position).getFecha());
         holder.tvHora.setText(listaContactos.get(position).getHora());
         holder.tvCosto.setText("$ " + listaContactos.get(position).getCosto());
@@ -56,7 +55,6 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
         } else {
             // Restaurar el color de fondo predeterminado de los demás elementos
             holder.itemView.setBackgroundResource(R.drawable.item_background);
-            //holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), android.R.color.transparent));
         }
     }
     @Override
@@ -65,13 +63,12 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
     }
 
     public class ContactoViewHolder extends RecyclerView.ViewHolder {
-        TextView tvNombre,tvTelefono, tvFecha, tvHora, tvCosto;
+        TextView tvMascota,tvNombre,tvFecha, tvHora, tvCosto;
 
         public ContactoViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            tvMascota= itemView.findViewById(R.id.tvMascota);
             tvNombre = itemView.findViewById(R.id.tvNombre);
-            tvTelefono= itemView.findViewById(R.id.tvTelefono);
             tvFecha= itemView.findViewById(R.id.tvFecha);
             tvHora= itemView.findViewById(R.id.tvHora);
             tvCosto= itemView.findViewById(R.id.tvCosto);

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Agenda Perritos</string>
 
+    <string name="hint_registro">Registro:</string>
     <string name="hint_nombre">Nombre:</string>
     <string name="hint_mascota">Mascota:</string>
     <string name="hint_direccion">Direccion:</string>
@@ -10,7 +11,8 @@
     <string name="hint_Costo">Costo:</string>
     <string name="guardar">Guardar</string>
     <string name="compartir">Compartir</string>
-    <string name="menu_nuevo">Nuevo</string>
+    <string name="menu_nuevoCliente">Nuevo Cliente</string>
+    <string name="menu_nuevaCita">Nueva Cita</string>
     <string name="menu_datos">Datos</string>
     <string name="menu_promo">Promociones</string>
     <string name="menu_export">Exportar</string>

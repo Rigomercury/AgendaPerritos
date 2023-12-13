@@ -3,8 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/menuNuevo"
-        android:title="@string/menu_nuevo" />
+        android:id="@+id/menuNuevoCliente"
+        android:title="@string/menu_nuevoCliente" />
+    <item
+        android:id="@+id/menuNuevaCita"
+        android:title="@string/menu_nuevaCita" />
     <item
         android:id="@+id/menuDatos"
         android:title="@string/menu_datos" />

@@ -2,6 +2,7 @@ package com.example.agendaperritos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -19,25 +20,25 @@ import com.example.agendaperritos.entidades.Contactos;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class NuevoActivity extends AppCompatActivity {
+public class nuevoCliente extends AppCompatActivity {
 
-    EditText txtNombre, txtTelefono, txtFecha, txtHora, txtCosto,txtMascota,txtDireccion;
+    EditText txtRegistro, txtNombre, txtTelefono,txtMascota,txtDireccion;
     Button btnGuardar, btnCompartir;
     Contactos contacto;
     int ids=0;
+    DbContactos dbContactos = new DbContactos(nuevoCliente.this);
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nuevo);
+        setContentView(R.layout.activity_nuevo_cliente);
 
+        txtRegistro = findViewById(R.id.txtRegistro);
         txtNombre = findViewById(R.id.txtNombre);
         txtMascota= findViewById(R.id.txtMascota);
         txtDireccion= findViewById(R.id.txtDireccion);
         txtTelefono= findViewById(R.id.txtTelefono);
-        txtFecha= findViewById(R.id.txtFecha);
-        txtHora = findViewById(R.id.txtHora);
-        txtCosto= findViewById(R.id.txtCosto);
         btnGuardar = findViewById(R.id.btnGuardar);
         btnCompartir = findViewById(R.id.btncompartir);
 
@@ -48,27 +49,27 @@ public class NuevoActivity extends AppCompatActivity {
             }
         });
 
+        int siguienteRegistro = dbContactos.obtenerSiguienteRegistro();
+        txtRegistro.setText(String.valueOf(siguienteRegistro));
+
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String registro = String.valueOf((txtRegistro.getText()));
                 String nombre = convertirAPropio(String.valueOf(txtNombre.getText()));
                 String mascota = convertirAPropio(String.valueOf(txtMascota.getText()));
                 String direccion = convertirAPropio(String.valueOf(txtDireccion.getText()));
                 String telefono = txtTelefono.getText().toString();
-                String fecha = txtFecha.getText().toString();
-                String hora = txtHora.getText().toString();
-                String costo = txtCosto.getText().toString();
-                if(nombre.isEmpty() || mascota.isEmpty() ||direccion.isEmpty() ||telefono.isEmpty()||fecha.isEmpty()||hora.isEmpty()||costo.isEmpty()){
-                    Toast.makeText(NuevoActivity.this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
+                if(nombre.isEmpty() || mascota.isEmpty() ||direccion.isEmpty() ||telefono.isEmpty()){
+                    Toast.makeText(nuevoCliente.this, "Complete todos los datos", Toast.LENGTH_SHORT).show();
                 }else{
-                    DbContactos dbContactos = new DbContactos(NuevoActivity.this);
-                    long id = dbContactos.insertaContacto(nombre,mascota,direccion,telefono,fecha,hora,costo);
+                    long id = dbContactos.insertaContacto(registro, nombre,mascota,direccion,telefono);
                     if (id>0){
-                        Toast.makeText(NuevoActivity.this, "Registro Guardado con Exito", Toast.LENGTH_LONG).show();
+                        Toast.makeText(nuevoCliente.this, "Registro Guardado con Exito", Toast.LENGTH_LONG).show();
                         ids = (int) id;
                         limpiar();
                     }else{
-                        Toast.makeText(NuevoActivity.this, "Error al Ingresar Contacto", Toast.LENGTH_LONG).show();
+                        Toast.makeText(nuevoCliente.this, "Error al Ingresar Contacto", Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -76,27 +77,11 @@ public class NuevoActivity extends AppCompatActivity {
     }
 
     private void limpiar(){
+        txtRegistro.setText("");
         txtNombre.setText("");
         txtMascota.setText("");
         txtDireccion.setText("");
         txtTelefono.setText("");
-        txtFecha.setText("");
-        txtHora.setText("");
-        txtCosto.setText("");
-    }
-    public void showDatePickerDialog(View v) {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year, month, dayOfMonth) -> {
-            String selectedDate = String.format(Locale.getDefault(), "%02d/%02d/%04d", dayOfMonth, month + 1, year);
-            txtFecha.setText(selectedDate);
-        }, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
-        datePickerDialog.show();
-    }
-    public void showTimePickerDialog(View v) {
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, (view, hourOfDay, minute) -> {
-            String selectedTime = String.format(Locale.getDefault(), "%02d:%02d", hourOfDay, minute);
-            txtHora.setText(selectedTime);
-        }, Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE), true);
-        timePickerDialog.show();
     }
     public void lanzaComparte(){
         Intent intent = new Intent(this, VerActivity.class);

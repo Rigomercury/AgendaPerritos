@@ -28,13 +28,22 @@
             android:padding="3dp">
 
             <TextView
-                android:id="@+id/tvNombre"
+                android:id="@+id/tvMascota"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+            <TextView
+                android:id="@+id/tvNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 tools:ignore="RtlHardcoded" />
 
             <LinearLayout
@@ -62,17 +71,6 @@
                     android:textSize="20sp"
                     tools:ignore="RtlHardcoded,RtlSymmetry" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/tvTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:textColor="@color/white"
-                android:paddingEnd="5dp"
-                android:textSize="20sp"
-                tools:ignore="RtlHardcoded,RtlSymmetry" />
-
             <TextView
                 android:id="@+id/tvCosto"
                 android:layout_width="match_parent"

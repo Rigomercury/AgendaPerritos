@@ -3,6 +3,7 @@ package com.example.agendaperritos.entidades;
 public class Contactos {
 
     private int id;
+    private String registro;
     private String nombre;
     private String mascota;
     private String direccion;
@@ -14,6 +15,10 @@ public class Contactos {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setRegistro(String registro) {
+        this.registro = registro;
     }
 
     public void setNombre(String nombre) {
@@ -38,6 +43,10 @@ public class Contactos {
 
     public int getId() {
         return id;
+    }
+
+    public String getRegistro() {
+        return registro;
     }
 
     public String getNombre() {

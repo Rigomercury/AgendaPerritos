@@ -28,10 +28,10 @@ import java.util.Locale;
 
 public class VerActivity extends AppCompatActivity {
 
-    TextView txtFecha, txtHora, txtNombre, txtTelefono, txtCosto, txtMascota, txtDireccion;
+    TextView txtRegistro, txtFecha, txtHora, txtNombre, txtTelefono, txtCosto, txtMascota, txtDireccion;
     FloatingActionButton fabEditar, fabEliminar, fabCompartir;
 
-    Contactos contacto;
+    Contactos contacto;;
     int id = 0;
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
@@ -40,6 +40,7 @@ public class VerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver);
 
+        txtRegistro = findViewById(R.id.txtRegistro);
         txtNombre = findViewById(R.id.txtNombre);
         txtMascota = findViewById(R.id.txtMascota);
         txtDireccion = findViewById(R.id.txtDireccion);
@@ -63,24 +64,31 @@ public class VerActivity extends AppCompatActivity {
         }
 
         DbContactos dbContactos = new DbContactos(VerActivity.this);
-        contacto = dbContactos.verContacto(id);
+        contacto = dbContactos.verContactoCitasNombres(id);
 
         if (contacto != null) {
+            txtRegistro.setText(contacto.getRegistro());
             txtNombre.setText(contacto.getNombre());
             txtMascota.setText(contacto.getMascota());
-            txtDireccion.setText(contacto.getDireccion());
-            txtTelefono.setText(contacto.getTelefono());
             txtFecha.setText(contacto.getFecha());
             txtHora.setText(contacto.getHora());
             txtCosto.setText("$ " + contacto.getCosto());
 
+            txtRegistro.setInputType(InputType.TYPE_NULL);
             txtNombre.setInputType(InputType.TYPE_NULL);
             txtMascota.setInputType(InputType.TYPE_NULL);
-            txtDireccion.setInputType(InputType.TYPE_NULL);
-            txtTelefono.setInputType(InputType.TYPE_NULL);
             txtFecha.setInputType(InputType.TYPE_NULL);
             txtHora.setInputType(InputType.TYPE_NULL);
             txtCosto.setInputType(InputType.TYPE_NULL);
+
+            String idR = txtRegistro.getText().toString();
+            DbContactos dbContactoDic = new DbContactos( VerActivity.this);
+            Contactos contactor = dbContactoDic.verContactoNombre(idR);
+
+            txtDireccion.setText(contactor.getDireccion());
+            txtTelefono.setText(contactor.getTelefono());
+            txtDireccion.setInputType(InputType.TYPE_NULL);
+            txtTelefono.setInputType(InputType.TYPE_NULL);
 
             fabEditar = findViewById(R.id.fabEditar);
             fabEliminar = findViewById(R.id.fabEliminar);
