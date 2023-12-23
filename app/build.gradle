@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+            debuggable true
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -37,6 +40,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation 'com.android.volley:volley-cronet:1.2.1'
+
+    implementation 'com.airbnb.android:lottie:4.2.1'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
     implementation 'com.opencsv:opencsv:5.6'
 

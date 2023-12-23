@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Agenda Perritos</string>
 
+    <!--EDITAR TEXTOS DE FORMULARIOS-->
     <string name="hint_registro">Registro:</string>
     <string name="hint_nombre">Nombre:</string>
     <string name="hint_mascota">Mascota:</string>
@@ -9,14 +10,31 @@
     <string name="hint_Fecha">Fecha:</string>
     <string name="hint_Hora">Hora:</string>
     <string name="hint_Costo">Costo:</string>
+
+    <!--BOTONES MODIFICAR FORMULARIOS-->
     <string name="guardar">Guardar</string>
+    <string name="modificar">Modificar</string>
+    <string name="eliminar">Eliminar</string>
     <string name="compartir">Compartir</string>
-    <string name="menu_nuevoCliente">Nuevo Cliente</string>
-    <string name="menu_nuevaCita">Nueva Cita</string>
+
+    <!--MANEJO DE MENUS-->
+    <string name="menu_nuevoCliente">Clientes</string>
+    <string name="menu_nuevaCita">Agendar Citas</string>
     <string name="menu_datos">Datos</string>
     <string name="menu_promo">Promociones</string>
+    <string name="menu_galeria">Galeria Imagenes</string>
+    <string name="menu_elimina_datos_galeria">Elimina Datos Galeria</string>
     <string name="menu_export">Exportar</string>
+    <string name="menu_salir">Salir</string>
+
+
     <string name="agenda_clientes">AGENDA CLIENTES</string>
     <string name="nuevo">Nuevo</string>
     <string name="total_mes_0">Total Mes: $0</string>
+
+    <!--BOTONES DE DIALOG-->
+    <string name="Btn_cerrar_imagen">Cerrar</string>
+    <string name="Btn_eliminar_imagen">Eliminar</string>
+    <string name="Btn_camara_imagen">Camara</string>
+    <string name="Btn_archivo_imagen">Archivo</string>
 </resources>

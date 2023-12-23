@@ -1,11 +1,10 @@
-package com.example.agendaperritos;
+package com.example.agendaperritos.actividades;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.agendaperritos.R;
 import com.example.agendaperritos.db.DbContactos;
 import com.example.agendaperritos.entidades.Contactos;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -56,7 +56,6 @@ public class EditarActivity extends AppCompatActivity {
                 id = Integer.parseInt(null);
             }else{
                 id = extras.getInt("ID");
-                Toast.makeText(EditarActivity.this, String.valueOf(id),Toast.LENGTH_LONG).show();
             }
         }else{
             id = (int) savedInstanceState.getSerializable("ID");
@@ -76,7 +75,7 @@ public class EditarActivity extends AppCompatActivity {
             txtCosto.setText(contacto.getCosto());
 
             String idR = txtRegistro.getText().toString();
-            Contactos contacto2 = dbContactos.verContactoNombre(idR);
+            Contactos contacto2 = dbContactos.verContacto(Integer.parseInt(idR));
             txtDireccion.setText(contacto2.getDireccion());
             txtTelefono.setText(contacto2.getTelefono());
 
@@ -86,8 +85,8 @@ public class EditarActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!txtNombre.getText().toString().equals("") &&!txtMascota.getText().toString().equals("") &&!txtDireccion.getText().toString().equals("") && !txtTelefono.getText().toString().equals("") && !txtFecha.getText().toString().equals("") &&  !txtHora.getText().toString().equals("")){
-                    correcto = dbContactos.editarContacto(id,txtNombre.getText().toString(),txtMascota.getText().toString(),txtDireccion.getText().toString(),txtTelefono.getText().toString(), txtFecha.getText().toString(),txtHora.getText().toString(),txtCosto.getText().toString());
+                if(!txtNombre.getText().toString().equals("") &&!txtMascota.getText().toString().equals("") && !txtFecha.getText().toString().equals("") &&  !txtHora.getText().toString().equals("")){
+                    correcto = dbContactos.editarCita(id,txtNombre.getText().toString(),txtMascota.getText().toString(),txtFecha.getText().toString(),txtHora.getText().toString(),txtCosto.getText().toString());
 
                     if(correcto){
                         Toast.makeText(EditarActivity.this, "Registro Modificado", Toast.LENGTH_LONG).show();
@@ -95,14 +94,13 @@ public class EditarActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(EditarActivity.this, "Registro Fallo", Toast.LENGTH_LONG).show();
                     }
-
                 }else{
                     Toast.makeText(EditarActivity.this, "Llene los campos", Toast.LENGTH_LONG).show();
                 }
             }
         });
     }
-    private void verRegistro(){
+    public void verRegistro(){
         Intent intent = new Intent(this, VerActivity.class);
         intent.putExtra("ID",id);
         startActivity(intent);

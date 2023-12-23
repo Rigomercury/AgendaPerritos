@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,7 +12,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.agendaperritos.R;
-import com.example.agendaperritos.VerActivity;
+import com.example.agendaperritos.actividades.VerActivity;
 import com.example.agendaperritos.entidades.Contactos;
 
 import java.util.ArrayList;
@@ -36,11 +35,12 @@ public class ListaContactoAdapter extends RecyclerView.Adapter<ListaContactoAdap
     public ContactoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_item_contacto, null, false);
         return new ContactoViewHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull ContactoViewHolder holder, int position) {
-        //Contactos contacto = listaContactos.get(position);
+
         holder.itemView.setBackgroundResource(R.drawable.item_background);
 
         holder.tvMascota.setText(listaContactos.get(position).getMascota());

@@ -1,4 +1,4 @@
-package com.example.agendaperritos;
+package com.example.agendaperritos.diseños;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,16 +9,18 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class DividerItemDecoration extends RecyclerView.ItemDecoration {
+import com.example.agendaperritos.R;
+
+public class LineItemDecoration extends RecyclerView.ItemDecoration {
     private Drawable divider;
 
     @SuppressLint("UseCompatLoadingForDrawables")
-    public DividerItemDecoration(Context context) {
-        divider = context.getResources().getDrawable(R.drawable.divider_line); // Crea un drawable para la línea divisoria
+    public LineItemDecoration(Context context) {
+        divider = context.getResources().getDrawable(R.drawable.divider_line);
     }
 
     @Override
-    public void onDrawOver(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
         int left = parent.getPaddingLeft();
         int right = parent.getWidth() - parent.getPaddingRight();
 

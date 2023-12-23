@@ -15,6 +15,12 @@
         android:id="@+id/menuPromocion"
         android:title="@string/menu_promo" />
     <item
-        android:id="@+id/menuExportar"
-        android:title="@string/menu_export" />
+        android:id="@+id/menuGaleriaImagenes"
+        android:title="@string/menu_galeria" />
+    <item
+        android:id="@+id/menuEliminarDatosGaleria"
+        android:title="@string/menu_elimina_datos_galeria" />
+    <item
+        android:id="@+id/menuSalir"
+        android:title="@string/menu_salir" />
 </menu>

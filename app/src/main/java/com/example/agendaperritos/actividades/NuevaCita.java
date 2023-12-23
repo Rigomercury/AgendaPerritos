@@ -1,4 +1,4 @@
-package com.example.agendaperritos;
+package com.example.agendaperritos.actividades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.agendaperritos.inicio.MainActivity;
+import com.example.agendaperritos.R;
 import com.example.agendaperritos.db.DbContactos;
 import com.example.agendaperritos.entidades.Contactos;
 
@@ -69,8 +70,8 @@ public class NuevaCita extends AppCompatActivity {
                 // Extrae el número de registro de la cadena seleccionada
                 String[] partes = selectedItem.split(" - |N:");
                 if (partes.length == 4) {
-                    String nombreDueño = partes[0];
-                    String nombreMascota = partes[1];
+                    String nombreDueño = partes[1];
+                    String nombreMascota = partes[0];
                     String numeroRegistro = partes[3];
 
                     // Actualiza el TxtRegistro con el número de registro seleccionado
@@ -92,7 +93,7 @@ public class NuevaCita extends AppCompatActivity {
             public void onFocusChange(View view, boolean b) {
                 if (!b) {
                     String id = txtRegistro.getText().toString();
-                    contacto = dbContactos.verContactoNombre(id);
+                    contacto = dbContactos.verContacto(Integer.parseInt(id));
 
                     String nombreDueño = contacto.getNombre();
                     String nombreMascota = contacto.getMascota();
@@ -127,6 +128,8 @@ public class NuevaCita extends AppCompatActivity {
                         Toast.makeText(NuevaCita.this, "Registro Guardado con Exito", Toast.LENGTH_LONG).show();
                         ids = (int) id;
                         limpiar();
+                        Intent intent = new Intent(NuevaCita.this, MainActivity.class);
+                        startActivity(intent);
                     }else{
                         Toast.makeText(NuevaCita.this, "Error al Ingresar Contacto", Toast.LENGTH_LONG).show();
                     }

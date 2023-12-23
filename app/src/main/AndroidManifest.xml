@@ -5,15 +5,19 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
@@ -28,7 +32,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgendaPerritos"
         tools:targetApi="31">
+        <activity
+            android:name=".actividades.EliminadoDatos"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.GaleriaImagenes"
+            android:exported="false"
+            android:parentActivityName=".inicio.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".inicio.MainActivity" />
+        </activity>
+        <activity
+            android:name=".inicio.Logeo_usuario"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainInicio"
+            android:exported="true" />
 
         <receiver
             android:name=".BootReceiver"
@@ -47,44 +73,36 @@
             android:resource="@drawable/ic_stat_notifications_active" />
 
         <activity
-            android:name=".VerActivity"
+            android:name=".inicio.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".actividades.VerActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".inicio.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".inicio.MainActivity" />
         </activity>
         <activity
-            android:name=".NuevaCita"
-            android:parentActivityName=".MainActivity">
+            android:name=".actividades.NuevaCita"
+            android:parentActivityName=".inicio.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".inicio.MainActivity" />
         </activity>
         <activity
-            android:name=".nuevoCliente"
-            android:parentActivityName=".MainActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
-        </activity>
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".EditarActivity"
-            android:parentActivityName=".MainActivity">
+            android:name=".actividades.nuevoCliente"
+            android:parentActivityName=".inicio.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".inicio.MainActivity" />
+        </activity>
+        <activity
+            android:name=".actividades.EditarActivity"
+            android:parentActivityName=".inicio.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".inicio.MainActivity" />
         </activity>
     </application>
 

@@ -4,41 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nuevoCliente">
+    tools:context=".actividades.nuevoCliente">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@drawable/item_background">
-        <EditText
-            android:id="@+id/txtRegistro"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="3dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPerrito1"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_logo_cyw"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/btnRotarImagen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/purple_200"
+                        android:src="@drawable/rotar_derecha"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:padding="3dp">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgPerrito2"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_logo_cyw"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <ImageButton
+                        android:id="@+id/btnRotarImagen2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/purple_200"
+                        android:src="@drawable/rotar_derecha"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:hint="@string/hint_registro"/>
-
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/txtRegistro"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hint_registro"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+            <EditText
+                android:id="@+id/txtMascota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/hint_mascota"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </LinearLayout>
         <EditText
             android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/hint_nombre"
             android:inputType="textPersonName"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:hint="@string/hint_nombre"/>
-        <EditText
-            android:id="@+id/txtMascota"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:hint="@string/hint_mascota"/>
+            android:textSize="20sp" />
         <EditText
             android:id="@+id/txtDireccion"
             android:layout_width="match_parent"
@@ -46,7 +106,7 @@
             android:textColor="@color/white"
             android:ems="10"
             android:inputType="textPersonName"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:hint="@string/hint_direccion"/>
         <EditText
             android:id="@+id/txtTelefono"
@@ -55,25 +115,35 @@
             android:ems="10"
             android:inputType="number"
             android:textColor="@color/white"
-            android:textSize="24sp"
-            android:text="+569"
+            android:textSize="20sp"
             android:hint="@string/hint_telefono"/>
-
         <Button
             android:id="@+id/btnGuardar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/guardar"
             android:backgroundTint="@color/colorAgendaProxima"
-            android:textSize="24dp"/>
+            android:textSize="18dp"/>
         <Button
             android:id="@+id/btncompartir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorAgendaProxima"
             android:text="@string/compartir"
-            android:textSize="24dp"/>
-
+            android:textSize="18dp"/>
+        <Button
+            android:id="@+id/btnModificar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:text="@string/modificar"
+            android:textSize="18dp" />
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAgendaProxima"
+            android:text="@string/eliminar"
+            android:textSize="18dp" />
     </LinearLayout>
-
 </LinearLayout>

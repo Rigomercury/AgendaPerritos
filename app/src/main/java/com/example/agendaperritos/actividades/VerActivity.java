@@ -1,4 +1,4 @@
-package com.example.agendaperritos;
+package com.example.agendaperritos.actividades;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,17 +8,14 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.icu.text.DecimalFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
-import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.agendaperritos.inicio.MainActivity;
+import com.example.agendaperritos.R;
 import com.example.agendaperritos.db.DbContactos;
 import com.example.agendaperritos.entidades.Contactos;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -83,7 +80,8 @@ public class VerActivity extends AppCompatActivity {
 
             String idR = txtRegistro.getText().toString();
             DbContactos dbContactoDic = new DbContactos( VerActivity.this);
-            Contactos contactor = dbContactoDic.verContactoNombre(idR);
+
+            Contactos contactor = dbContactoDic.verContacto(Integer.parseInt(idR));
 
             txtDireccion.setText(contactor.getDireccion());
             txtTelefono.setText(contactor.getTelefono());
@@ -111,7 +109,7 @@ public class VerActivity extends AppCompatActivity {
                         .setPositiveButton("SI", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int i) {
-                                if (dbContactos.eliminarContacto(id)) {
+                                if (dbContactos.eliminarCita(id)) {
                                     lista();
                                 }
                             }
@@ -133,26 +131,22 @@ public class VerActivity extends AppCompatActivity {
                 String lineaHorizontal = " "; // Puedes ajustar la longitud según tus necesidades
 
                 // Texto que deseas compartir
-                String mensaje = "Hola, su cita con ★" + txtMascota.getText().toString().toUpperCase() + "★" +
-                        "en Perruqueria 'COSMO Y WANDA' ha sido reservada satisfactoriamente" +
+                String mensaje = "¡Hola! Confirmamos tu cita, en Perruquería ★'COSMO Y WANDA'★" +
                         "\n" + lineaHorizontal +
-
                         "\nDia: " + txtFecha.getText().toString() +
                         "\nHora: " + txtHora.getText().toString() +
                         "\n" + lineaHorizontal +
-
-                        "\nPuede cancelar en efectivo o Transferencia a:" +
+                        "\nPuedes cancelar en efectivo o Transferencia a:" +
                         "\nNombre: Maribel Salgado" +
                         "\nRut: 16800320-K" +
                         "\nBanco Estado, Cta Rut" +
                         "\n" + lineaHorizontal +
-
-                        "\nTambien puedes reservar a: pelu.cosmoywanda@gmail.com"+
-                        "\n" + lineaHorizontal +
+                        "\nTambien puedes reservar a: pelu.cosmoywanda@gmail.com" +
                         "\nSiguenos en Instagram: https://www.instagram.com/peluqueria.canina.cosmoywanda/"+
-                        "\nGracias por preferir a COSMO Y WANDA!!";
+                        "\n" + lineaHorizontal +
+                        "\nGracias por preferirnos.";
 
-                if (txtTelefono.getText().toString().isEmpty()) {
+                if (numeroTelefono.isEmpty()) {
                     // Crear un intent para abrir WhatsApp y compartir el mensaje
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
@@ -165,9 +159,10 @@ public class VerActivity extends AppCompatActivity {
                     // Crear un intent para abrir WhatsApp y compartir el mensaje
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_VIEW);
-                    String uri = "whatsapp://send?phone=" + txtTelefono.getText().toString() + "&text=" + mensaje;
+                    String uri = "https://api.whatsapp.com/send/?phone=56" + numeroTelefono + "&text=" + mensaje;
                     sendIntent.setData(Uri.parse(uri));
                     startActivity(sendIntent);
+
                 }
             }
         });

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_logo_cyw"
     android:orientation="vertical"
-    tools:context=".NuevaCita">
+    tools:context=".actividades.NuevaCita">
 
     <LinearLayout
         android:layout_width="match_parent"

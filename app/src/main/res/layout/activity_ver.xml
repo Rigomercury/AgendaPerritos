@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_logo_cyw"
     android:orientation="vertical"
-    tools:context=".VerActivity">
+    tools:context=".actividades.VerActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
